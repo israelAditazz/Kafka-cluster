@@ -118,6 +118,10 @@ spec:
         volumeMounts:
         - name: datadir
           mountPath: /var/lib/zookeeper
+      volumes:
+        - name: datadir
+          persistentVolumeClaim:
+            claimName: datadir-pv-claim
       securityContext:
         runAsUser: 1000
         fsGroup: 1000
@@ -125,7 +129,8 @@ spec:
   - metadata:
       name: datadir
     spec:
-      accessModes: [ "ReadWriteOnce" ]
+      accessModes: 
+        -ReadWriteOnce
       resources:
         requests:
-          storage: 200Gi
+          storage: 20Gi
