@@ -131,6 +131,7 @@ spec:
     spec:
       accessModes: 
         -ReadWriteOnce
+      storageClassName: rbd
       resources:
         requests:
           storage: 20Gi
